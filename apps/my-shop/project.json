@@ -1,0 +1,76 @@
+{
+  "name": "my-shop",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-shop:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-shop:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "my-shop:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "dependsOn": ["build"],
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-shop:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-shop:build:development"
+        },
+        "production": {
+          "buildTarget": "my-shop:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "my-shop:build",
+        "spa": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/jest.config.ts"
+      }
+    }
+  }
+}
