@@ -1,12 +1,12 @@
 {
   "name": "my-shop",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/src",
+  "sourceRoot": "apps/my-shop",
   "projectType": "application",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
@@ -22,7 +22,7 @@
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "my-shop:build"
