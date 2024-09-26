@@ -40,6 +40,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/next:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
@@ -72,6 +77,12 @@
       },
       "library": {
         "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "tailwind",
         "linter": "eslint"
       }
     }

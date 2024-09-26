@@ -1,34 +1,40 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "allowJs": false,
+    "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "types": [
-      "vite/client"
-    ],
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
+    ],
+    "types": [
+      "jest",
+      "node"
     ]
   },
-  "files": [],
   "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "../../apps/my-shop/.next/types/**/*.ts",
+    "../../dist/apps/my-shop/.next/types/**/*.ts",
+    "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ],
-  "extends": "../../tsconfig.base.json"
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }

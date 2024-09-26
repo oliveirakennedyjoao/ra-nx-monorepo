@@ -1,6 +1,6 @@
 {
   "name": "my-shop",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/my-shop",
   "projectType": "application",
   "tags": [],
@@ -10,58 +10,45 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps"
+        "outputPath": "dist/apps/my-shop"
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "outputPath": "apps/my-shop"
         },
-        "production": {
-          "mode": "production"
-        }
+        "production": {}
       }
     },
     "serve": {
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "my-shop:build"
+        "buildTarget": "my-shop:build",
+        "dev": true
       },
       "configurations": {
         "development": {
           "buildTarget": "my-shop:build:development",
-          "hmr": true
+          "dev": true
         },
         "production": {
           "buildTarget": "my-shop:build:production",
-          "hmr": false
+          "dev": false
         }
       }
     },
-    "preview": {
-      "dependsOn": ["build"],
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
+    "export": {
+      "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "my-shop:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "my-shop:build:development"
-        },
-        "production": {
-          "buildTarget": "my-shop:build:production"
-        }
+        "buildTarget": "my-shop:build:production"
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "my-shop:build",
+        "staticFilePath": "dist/apps/my-shop/out",
         "spa": true
       }
     },
@@ -69,8 +56,11 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/jest.config.ts"
+        "jestConfig": "apps/my-shop/jest.config.ts"
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
     }
   }
 }
