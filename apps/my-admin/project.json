@@ -1,7 +1,7 @@
 {
   "name": "my-admin",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/my-admin/src",
+  "sourceRoot": "apps/my-admin",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -14,61 +14,53 @@
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "outputPath": "apps/my-admin"
         },
-        "production": {
-          "mode": "production"
-        }
+        "production": {}
       }
     },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "my-admin:build"
+        "buildTarget": "my-admin:build",
+        "dev": true
       },
       "configurations": {
         "development": {
           "buildTarget": "my-admin:build:development",
-          "hmr": true
+          "dev": true
         },
         "production": {
           "buildTarget": "my-admin:build:production",
-          "hmr": false
+          "dev": false
         }
       }
     },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
+    "export": {
+      "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "my-admin:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "my-admin:build:development"
-        },
-        "production": {
-          "buildTarget": "my-admin:build:production"
-        }
-      },
-      "dependsOn": ["build"]
+        "buildTarget": "my-admin:build:production"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "my-admin:build",
+        "staticFilePath": "dist/apps/my-admin/out",
+        "spa": true
+      }
     },
     "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/my-admin"
+        "jestConfig": "apps/my-admin/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "serve-static": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "my-admin:build"
-      }
     }
   }
 }
