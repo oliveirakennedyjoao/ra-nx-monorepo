@@ -1,0 +1,176 @@
+{
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "productId": 1 },
+    { "id": "2", "text": "a comment about post 2", "productId": 2 }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "product 1",
+      "price": 300,
+      "category": "cars",
+      "description": "Product 1 description"
+    },
+
+    {
+      "id": "2",
+      "title": "product 2",
+      "price": 200,
+      "category": "accessories",
+      "description": "Product 2 description"
+    },
+
+    {
+      "id": 3,
+      "title": "product 3",
+      "price": 600,
+      "category": "gadgets",
+      "description": "Product 3 description"
+    },
+
+    {
+      "id": 4,
+      "title": "product 4",
+      "price": 400,
+      "category": "accessories",
+      "description": "Product 4 description"
+    },
+
+    {
+      "id": 5,
+      "title": "product 5",
+      "price": 500,
+      "category": "gadgets",
+      "description": "Product 5 description"
+    },
+    {
+      "id": 6,
+      "title": "product 6",
+      "price": 300,
+      "category": "accessories",
+      "description": "Product 6 description"
+    },
+
+    {
+      "id": 7,
+      "title": "product 7",
+      "price": 200,
+      "category": "jeweries",
+      "description": "Product 7 description"
+    },
+
+    {
+      "id": 8,
+      "title": "product 8",
+      "price": 600,
+      "category": "gadgets",
+      "description": "Product 8 description"
+    },
+
+    {
+      "id": 9,
+      "title": "product 9",
+      "price": 600,
+      "category": "accessories",
+      "description": "Product 9 description"
+    },
+
+    {
+      "id": 10,
+      "title": "product 10",
+      "price": 500,
+      "category": "gadgets",
+      "description": "Product 10 description"
+    },
+    {
+      "id": 11,
+      "title": "product 11",
+      "price": 300,
+      "category": "foods",
+      "description": "Product 11 description"
+    },
+
+    {
+      "id": 12,
+      "title": "product 12",
+      "price": 200,
+      "category": "accessories",
+      "description": "Product 12 description"
+    },
+
+    {
+      "id": 13,
+      "title": "product 13",
+      "price": 600,
+      "category": "cars",
+      "description": "Product 13 description"
+    },
+
+    {
+      "id": 14,
+      "title": "product 14",
+      "price": 900,
+      "category": "accessories",
+      "description": "Product 14 description"
+    },
+
+    {
+      "id": 15,
+      "title": "product 15",
+      "price": 700,
+      "category": "jeweries",
+      "description": "Product 15 description"
+    },
+    {
+      "id": 16,
+      "title": "product 16",
+      "price": 300,
+      "category": "clothes",
+      "description": "Product 16 description"
+    },
+
+    {
+      "id": 17,
+      "title": "product 17",
+      "price": 400,
+      "category": "foods",
+      "description": "Product 17 description"
+    },
+
+    {
+      "id": 18,
+      "title": "product 18",
+      "price": 600,
+      "category": "gadgets",
+      "description": "Product 18 description"
+    },
+
+    {
+      "id": 19,
+      "title": "product 19",
+      "price": 400,
+      "category": "accessories",
+      "description": "Product 19 description"
+    },
+
+    {
+      "id": 20,
+      "title": "product 20",
+      "price": 1000,
+      "category": "gadgets",
+      "description": "Product 20 description"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "adminplaceholder@email.com"
+    },
+    {
+      "id": 2,
+      "name": "user",
+      "email": "userplaceholder@email.com"
+    }
+  ]
+}
